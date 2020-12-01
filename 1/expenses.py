@@ -8,19 +8,18 @@ def parse_input():
 
 
 def find_sum(expenses, target_sum):
-    expense_set = set(expenses)
-    for expense in expense_set:
+    for i, expense in enumerate(expenses[:-1]):
         matching = target_sum - expense
-        if matching in expense_set:
+        if matching in expenses[i+1:]:
             return [expense, matching]
 
     return None
 
 
 def find_triple_sum(expenses, target_sum):
-    for num in expenses:
+    for i, num in enumerate(expenses[:-1]):
         remainder = 2020 - num
-        vals = find_sum(expenses, remainder)
+        vals = find_sum(expenses[i+1:], remainder)
         if vals is not None:
             vals.append(num)
             return vals
