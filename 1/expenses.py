@@ -17,7 +17,7 @@ def find_sum(expenses, target_sum):
 
 
 def find_triple_sum(expenses, target_sum):
-    for i, num in enumerate(expenses[:-1]):
+    for i, num in enumerate(expenses[:-2]):
         remainder = target_sum - num
         vals = find_sum(expenses[i+1:], remainder)
         if vals is not None:
