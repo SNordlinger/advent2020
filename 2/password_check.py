@@ -16,11 +16,11 @@ class PassInfo:
         return count >= self.min and count <= self.max
 
     def valid_position(self):
-        in_min = self._get_char(self.min) == self.letter
-        in_max = self._get_char(self.max) == self.letter
+        in_min = self.__get_char(self.min) == self.letter
+        in_max = self.__get_char(self.max) == self.letter
         return (in_min and not in_max) or (in_max and not in_min)
 
-    def _get_char(self, pos):
+    def __get_char(self, pos):
         idx = pos - 1
         try:
             return self.password[idx]
