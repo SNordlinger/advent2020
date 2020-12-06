@@ -61,8 +61,7 @@ def find_open_seat(seats):
     for seat_id, is_open in seat_iter:
         if is_open:
             seat = Seat.from_id(seat_id)
-            if seat.row != 0 and seat.row != 127:
-                return seat
+            return seat
 
     raise Exception('Cannot find open seat')
 
